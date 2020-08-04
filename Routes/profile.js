@@ -3,6 +3,8 @@ const router = Router()
 const authMW = require('../Middlewares/auth')
 const User = require('../Models/user')
 const path = require('path')
+const config = require('../config/config')
+
 
 router.get('/', authMW, async (req, res) => {
     const user = await User.findById(req.user.userId)
@@ -11,7 +13,7 @@ router.get('/', authMW, async (req, res) => {
         message: 'this your profile',
         user: {
             ...req.user,
-            avatarUrl: 'http://localhost:3005/api/profile/' + user.avatarUrl
+            avatarUrl: config.baseUrl + '/api/profile/' + user.avatarUrl
         }
     })
 })
@@ -21,7 +23,7 @@ router.post('/addAvatar', authMW, async (req, res) => {
         const user = await User.findById(req.user.userId)
 
         const toChange = {}
-        console.log(req.file)
+
         if(req.file) {
             toChange.avatarUrl = 'images/' + req.file.filename
         }
