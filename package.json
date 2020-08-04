@@ -1,0 +1,40 @@
+{
+  "name": "crud_api_todolist",
+  "version": "1.0.0",
+  "description": "Simple Restful CRUD API powered by Express and MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmoneone/Restful_CRUD_API_toDoList.git"
+  },
+  "keywords": [
+    "Express",
+    "NodeJs",
+    "MongoDB",
+    "REST",
+    "API",
+    "CRUD"
+  ],
+  "author": "dmoneone <kirildim16@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmoneone/Restful_CRUD_API_toDoList/issues"
+  },
+  "homepage": "https://github.com/dmoneone/Restful_CRUD_API_toDoList#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.24",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.11",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
