@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dmoneone/Restful_CRUD_API_toDoList.git"
+    "url": "git+https://github.com/dmoneone/Rest-API-ToDoList"
   },
   "keywords": [
     "Express",
@@ -22,9 +22,9 @@
   "author": "dmoneone <kirildim16@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dmoneone/Restful_CRUD_API_toDoList/issues"
+    "url": "https://github.com/dmoneone/Rest-API-ToDoList/issues"
   },
-  "homepage": "https://github.com/dmoneone/Restful_CRUD_API_toDoList#readme",
+  "homepage": "https://github.com/dmoneone/Rest-API-ToDoList#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
