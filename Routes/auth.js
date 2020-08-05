@@ -2,7 +2,7 @@ const {Router} = require('express')
 const jwt = require('jsonwebtoken')
 const User = require('../Models/user')
 const bcrypt = require('bcryptjs')
-const config = require('../config/config')
+const keys = require('../keys/keys')
 const router = Router()
 const nodemailer = require('nodemailer')
 const sendGrid = require('nodemailer-sendgrid-transport')
@@ -11,7 +11,7 @@ const {body, validationResult} = require('express-validator/check')
 const registerValidators = require('../utils/registerValidators')
 
 const transporter = nodemailer.createTransport(sendGrid({
-    auth: { 'api_key': config.sendGridApiKey }
+    auth: { 'api_key': keys.sendGridApiKey }
 }))
 
 
@@ -40,7 +40,7 @@ router.post('/login', [
                 email: user.email,
                 userId: user._id,
                 name: user.name
-            }, config.jwtKey, {
+            }, keys.jwtKey, {
                 expiresIn: 60 * 60
             })
             
@@ -131,7 +131,7 @@ router.post('/reset', (req, res) => {
                         <h2>Did you really forget password?</h2>
                         <p>If you are not, just ignore this message</p>
                         <p>Else click this link</p>
-                        <p><a href="${config.baseUrl}/api/auth/password/${token}">Reset</a></p>
+                        <p><a href="${keys.baseUrl}/api/auth/password/${token}">Reset</a></p>
                     `
                 })
 

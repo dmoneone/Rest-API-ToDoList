@@ -3,7 +3,7 @@ const router = Router()
 const authMW = require('../Middlewares/auth')
 const User = require('../Models/user')
 const path = require('path')
-const config = require('../config/config')
+const keys = require('../keys/keys')
 
 
 router.get('/', authMW, async (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', authMW, async (req, res) => {
         message: 'this your profile',
         user: {
             ...req.user,
-            avatarUrl: config.baseUrl + '/api/profile/' + user.avatarUrl
+            avatarUrl: keys.baseUrl + '/api/profile/' + user.avatarUrl
         }
     })
 })

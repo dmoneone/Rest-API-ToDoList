@@ -7,7 +7,7 @@ const path = require('path')
 const authRoute = require('./Routes/auth')
 const toDoListRoute = require('./Routes/toDoList')
 const profileRoute = require('./Routes/profile')
-const config = require('./config/config')
+const keys = require('./keys/keys')
 
 const app = express()
 
@@ -37,7 +37,7 @@ const start = async (port, uri) => {
     }
 }
 
-start(3005, config.mongoDbUri)
+start(3005, keys.mongoDbUri)
 
 //user ufXgEwTrHcFOIrNy
 //mongodb+srv://dmoneone:<password>@cluster0.eee2g.mongodb.net/<dbname>?retryWrites=true&w=majority

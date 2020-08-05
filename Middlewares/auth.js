@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const config = require('../config/config')
+const keys = require('../keys/keys')
 
 module.exports = (req, res, next) => {
     if(req.method === 'OPTIONS') {
@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
             return res.status(401).json({message: 'unauthorized'})
         }
 
-        const decoded = jwt.verify(token, config.jwtKey)
+        const decoded = jwt.verify(token, keys.jwtKey)
 
         delete decoded.iat
         delete decoded.exp
