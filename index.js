@@ -8,6 +8,8 @@ const authRoute = require('./Routes/auth')
 const toDoListRoute = require('./Routes/toDoList')
 const profileRoute = require('./Routes/profile')
 const keys = require('./keys/keys')
+const helmet = require('helmet')
+const compression = require('compression')
 
 const app = express()
 
@@ -16,6 +18,8 @@ app.use(fileMW.single('avatar'))
 //app.use(express.static(path.join(__dirname, 'images')))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+app.use(helmet())
+app.use(compression())
 
 
 app.use('/api/auth', authRoute)

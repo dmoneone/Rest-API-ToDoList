@@ -91,7 +91,7 @@ router.post('/register', registerValidators, async (req, res) => {
 
         await transporter.sendMail({
             to: email,
-            from: 'kirildim16@gmail.com',
+            from: keys.emailFrom,
             subject: 'Account has been created',
             html: `
                 <h2>Thank you for register!</h2>
@@ -125,7 +125,7 @@ router.post('/reset', (req, res) => {
 
                 await transporter.sendMail({
                     to: req.body.email,
-                    from: 'kirildim16@gmail.com',
+                    from: keys.emailFrom,
                     subject: 'Reset password',
                     html: `
                         <h2>Did you really forget password?</h2>
