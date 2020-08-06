@@ -13,7 +13,7 @@ router.get('/', authMW, async (req, res) => {
         message: 'this your profile',
         user: {
             ...req.user,
-            avatarUrl: keys.baseUrl + '/api/profile/' + user.avatarUrl
+            avatarUrl: keys.baseUrl + 'api/profile/' + user.avatarUrl
         }
     })
 })
