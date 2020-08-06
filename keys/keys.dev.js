@@ -5,3 +5,4 @@ module.exports = {
     baseUrl: 'http://localhost:3005',
     emailFrom: 'kirildim16@gmail.com'
 }
+
