@@ -2,7 +2,7 @@
 Restful CRUD API with Node.js, Express and MongoDB
 
 # DOCS 
-
+## API: https://blooming-stream-23263.herokuapp.com/
 ## Auth
 ### Login
 POST: /api/auth/login <br />
