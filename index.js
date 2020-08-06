@@ -43,5 +43,3 @@ const start = async (port, uri) => {
 
 start((process.env.PORT || 3005), keys.mongoDbUri)
 
-//user ufXgEwTrHcFOIrNy
-//mongodb+srv://dmoneone:<password>@cluster0.eee2g.mongodb.net/<dbname>?retryWrites=true&w=majority
