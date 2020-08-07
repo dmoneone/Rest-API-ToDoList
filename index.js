@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const User = require('./Models/user')
 const fileMW = require('./Middlewares/file')
 const path = require('path')
+const cors = require('cors')
 
 const authRoute = require('./Routes/auth')
 const toDoListRoute = require('./Routes/toDoList')
@@ -20,7 +21,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(helmet())
 app.use(compression())
-
+app.use(cors())
 
 app.use('/api/auth', authRoute)
 app.use('/api/list', toDoListRoute)
