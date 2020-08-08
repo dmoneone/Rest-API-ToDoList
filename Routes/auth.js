@@ -131,7 +131,7 @@ router.post('/reset', (req, res) => {
                         <h2>Did you really forget password?</h2>
                         <p>If you are not, just ignore this message</p>
                         <p>Else click this link</p>
-                        <p><a href="${keys.baseUrl}/api/auth/password/${token}">Reset</a></p>
+                        <p><a href="${keys.baseUrl}api/auth/password/${token}">Reset</a></p>
                     `
                 })
 
