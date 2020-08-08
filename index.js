@@ -23,9 +23,9 @@ app.use(helmet())
 app.use(compression())
 app.use(cors())
 
-app.use('/api/auth', authRoute)
-app.use('/api/list', toDoListRoute)
-app.use('/api/profile', profileRoute)
+app.use('api/auth', authRoute)
+app.use('api/list', toDoListRoute)
+app.use('api/profile', profileRoute)
 app.get('/', (req, res) => {
     res.json({page: 'home'})
 })
