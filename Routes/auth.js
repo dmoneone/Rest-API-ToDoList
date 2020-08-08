@@ -142,7 +142,7 @@ router.post('/reset', (req, res) => {
 
             } else {
                 return res.status(404).json({
-                    message: 'no user with this email'
+                    error: 'no user with this email'
                 })
             }
         })
