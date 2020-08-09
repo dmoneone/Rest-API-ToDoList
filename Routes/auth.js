@@ -165,10 +165,7 @@ router.get('/password/:token', async (req, res) => {
                 message: 'no such user'
             })
         } else {
-            return res.json({
-                userId: user._id,
-                token: req.params.token
-            })
+            return res.redirect(`${keys.frontEnd}/${req.params.token}/${user._id}`)
         }
     } catch (e) {
         console.log(e)
@@ -176,8 +173,18 @@ router.get('/password/:token', async (req, res) => {
 
 })
 
-router.post('/password', async (req, res) => {
+router.post('/password', [ 
+    body('password', 'password must have min 5 symbols. Use only numbers and Latin').isLength({ min: 5, max: 20 }).isAlphanumeric()
+], async (req, res) => {
+    
     if(!req.body.userId && !req.body.token && !req.body.password) return res.json({ message: 'body is incorrect' })
+
+    const errors = validationResult(req)
+    if(!errors.isEmpty()) {
+        return res.status(422).json({ //422 some errs with validation
+            error: errors.array()[0].msg
+        })
+    }
 
     try {
         const user = await User.findOne({

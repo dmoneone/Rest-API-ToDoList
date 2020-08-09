@@ -20,10 +20,9 @@ Headers: { 'Content-Type': 'application/json' } <br />
 Body: { email: string } <br />
 Response: { message: string } <br />
 Message with link will come to your email. <br />
-### Get token and userId for password saveing
-GET: /api/auth/password/:token <br />
-Response: { userId: string, token: string } <br />
-This token for saveing. Auth token is not the same. You can make this req by pressing link button in your email letter.<br />
+### Getting token and userId for password saveing
+You will be redireced to your front-end. Path: `${frontEnd}/${token}/${userId}`<br />
+GET: /api/auth/password/:token/:userId <br />
 ### Save Password
 POST: /api/auth/password <br />
 Headers: { 'Content-Type': 'application/json' } <br />
