@@ -63,3 +63,16 @@ POST: /api/profile/addAvatar <br />
 Headers: { 'Content-Type': 'multipart/form-data', Authorization: token } <br />
 Body: { avatar: *selected file* } <br />
 Response: { message: string } <br />
+## Users 
+### Get All Users
+GET: /api/users <br />
+Headers: { Authorization: token } <br />
+Response: { *users data* } <br />
+### Follow User
+POST: /api/users/follow <br />
+Headers: { Authorization: token } <br />
+Body: { userId: string} <br />
+### Unfollow User
+DELETE: /api/users/unfollow/:id <br />
+Headers: { Authorization: token } <br />
+

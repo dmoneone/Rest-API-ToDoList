@@ -16,6 +16,24 @@ const userSchema = new Schema({
         required: true,
         type: String
     },
+    subscriptions: {
+        users: [
+            {
+                userId: {
+                    type: Schema.Types.ObjectId
+                }
+            }
+        ]
+    },
+    subscribers: {
+        users: [
+            {
+                userId: {
+                    type: Schema.Types.ObjectId
+                }
+            }
+        ]
+    },
     toDoList: {
         items: [
             {
@@ -30,7 +48,7 @@ const userSchema = new Schema({
         ]
     }
 })
-
+//todo
 userSchema.methods.addNewPost = function(title) {
     const clonedItems = [...this.toDoList.items]
     
@@ -66,6 +84,30 @@ userSchema.methods.updatePost = function(postId, title) {
 
 userSchema.methods.clearList = function() {
     this.toDoList = {items: []}
+    return this.save()
+}
+//users
+
+userSchema.methods.follow = function(userId) {
+    const clonedUsers = [...this.subscriptions.users]
+    
+    const ind = clonedUsers.findIndex(item => item.userId.toString() === userId)
+    if(ind > -1 ) return
+
+    clonedUsers.push({ userId })
+    this.subscriptions = { users: clonedUsers }
+
+    return this.save()
+}
+
+userSchema.methods.unfollow = function(userId) {
+    const clonedUsers = [...this.subscriptions.users]
+
+    const ind = clonedUsers.findIndex(item => item.userId.toString() === userId)
+    if(ind === -1 ) return
+
+    this.subscriptions = { users: clonedUsers.filter(item => item.userId.toString() !== userId) }
+
     return this.save()
 }
 
